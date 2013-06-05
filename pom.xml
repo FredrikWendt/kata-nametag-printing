@@ -6,8 +6,14 @@
 	<groupId>com.squeed.kata</groupId>
 	<artifactId>nametags</artifactId>
 	<version>1.0.0</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>Kata Name Tag Printing</name>
 	<description>A Kata For Practicing Test Doubles</description>
+
+	<modules>
+		<module>library</module>
+		<module>exercise</module>
+		<module>solution</module>
+	</modules>
 </project>

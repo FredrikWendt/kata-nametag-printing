@@ -1,5 +1,6 @@
 package com.squeed.kata.nametag.entities;
 
+import java.awt.Image;
 import java.util.List;
 
 /**
@@ -19,6 +20,6 @@ public interface Event {
 	 * 
 	 * @return the event's default image
 	 */
-	Image getEventImage();
+	Image getDefaultImage();
 	
 }

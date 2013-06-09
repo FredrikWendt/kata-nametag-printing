@@ -6,7 +6,7 @@ public class PhotoDownloadResult {
 
 	private final Photo downloadedPhoto;
 
-	private PhotoDownloadResult(Photo object) {
+	public PhotoDownloadResult(Photo object) {
 		this.downloadedPhoto = object;
 	}
 

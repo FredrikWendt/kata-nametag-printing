@@ -11,6 +11,10 @@
 	<name>Kata Name Tag Printing</name>
 	<description>A Kata For Practicing Test Doubles</description>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<modules>
 		<module>library</module>
 		<module>exercise</module>

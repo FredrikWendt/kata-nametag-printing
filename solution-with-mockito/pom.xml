@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>Name Tag Printing Reference Solution</name>
-	<description>A solution for the kata, if you need to demonstrate</description>
+	<description>A solution for the kata, using a mocking framework.</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

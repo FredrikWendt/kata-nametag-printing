@@ -61,21 +61,6 @@ public class NameTagManagerImplementationTest {
 		verifyZeroInteractions(printer);
 	}
 
-	private Event givenAnEventWithZeroAttendees() {
-		Event event = mock(Event.class);
-		given(event.getExpectedAttendees()).willReturn(new ArrayList<Attendee>());
-		return event;
-	}
-
-	@Test
-	public void withNoAttendees_NothingIsDownloaded() throws Exception {
-		Event event = givenAnEventWithZeroAttendees();
-
-		testee.printNameTagsForEvent(event);
-
-		verifyZeroInteractions(downloadManager);
-	}
-
 	@Test
 	public void withOneAttendee_AndZeroDownloaders_TheEventDefaultImageIsPrinted() throws Exception {
 		Attendee attendee = mock(Attendee.class);
@@ -84,7 +69,6 @@ public class NameTagManagerImplementationTest {
 		testee.printNameTagsForEvent(event);
 
 		verify(printer).printNameTagFor(attendee, defaultImage);
-		verify(downloadManager).getDownloadServices();
 	}
 
 	@Test
@@ -112,6 +96,19 @@ public class NameTagManagerImplementationTest {
 		verifyNoMoreInteractions(printer);
 	}
 
+	private Event givenAnEventWithZeroAttendees() {
+		Event event = mock(Event.class);
+		given(event.getExpectedAttendees()).willReturn(new ArrayList<Attendee>());
+		return event;
+	}
+
+	private Event givenAnEventWith(Image defaultImage, Attendee attendee) {
+		Event event = mock(Event.class);
+		given(event.getDefaultImage()).willReturn(defaultImage);
+		given(event.getExpectedAttendees()).willReturn(Arrays.asList(attendee));
+		return event;
+	}
+
 	private void givenDownloadServiceWillSucessfullyDownload(PhotoDownloadService downloadService, Attendee attendee2,
 			Image image) {
 		PhotoDownloadResult downloadResult = downloadResult(image);
@@ -128,13 +125,6 @@ public class NameTagManagerImplementationTest {
 	private PhotoDownloadResult emptyDownloadResult() {
 		PhotoDownloadResult result = new PhotoDownloadResult(null);
 		return result;
-	}
-
-	private Event givenAnEventWith(Image defaultImage, Attendee attendee) {
-		Event event = mock(Event.class);
-		given(event.getDefaultImage()).willReturn(defaultImage);
-		given(event.getExpectedAttendees()).willReturn(Arrays.asList(attendee));
-		return event;
 	}
 
 }

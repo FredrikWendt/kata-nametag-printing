@@ -8,6 +8,11 @@ import com.squeed.kata.nametag.entities.Attendee;
  */
 public interface PhotoDownloadService {
 
+	/**
+	 * This method always returns a PhotoDownloadResult (never null).
+	 * <p>
+	 * If the downloading attempt failed, it returns a PhotoDownloadResult that says so.
+	 */
 	PhotoDownloadResult downloadPhotoOf(Attendee attendee);
 
 }
